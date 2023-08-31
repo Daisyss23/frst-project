@@ -194,12 +194,12 @@ print('Проверка')
 #### Жизненный цикл файла в Git
 
 ```mermaid
-graph TD;
-A[untracted] -- git add --> B[staged+tracked];
-B -- git commit --> C[tracked];
-C -- Изменения ---> D[modified];
-D -- git add -> B;
-B -- Изменения -> D;
+graph LR;
+untracted -- git add --> staged+tracked;
+staged+tracked -- git commit --> tracked;
+tracked -- Изменения ---> modified;
+modified -- git add -> staged+tracked;
+staged+tracked -- Изменения -> modified;
 ```
 
 1. Файл только что создали. Git про него ещё ничего не знает. Состояние: untracked.
